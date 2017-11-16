@@ -40,7 +40,7 @@ The build server gets its own task to execute - `cibuild`.
 java -jar distribution/build/bootifulNode.war
 ```
 
-[Open Browser](http://localhost:8080)
+Open Browser to http://localhost:8080
 
 ## TODO
 
