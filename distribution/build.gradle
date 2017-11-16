@@ -1,0 +1,16 @@
+configurations { dist }
+dependencies {
+    dist project(path: ':backend', configuration: 'originalWar')
+    dist project(path: ':frontend', configuration: 'zip')
+}
+task mergeFrontAndBack(dependsOn: configurations.dist, type: Zip) {
+    from { configurations.dist.collect { zipTree(it) } }
+    destinationDir(buildDir)
+    archiveName 'bootifulNode.war'
+    entryCompression ZipEntryCompression.STORED
+}
+
+task clean(type: Delete) { delete 'build' }
+
+task cibuild(dependsOn: 'mergeFrontAndBack') {}
+

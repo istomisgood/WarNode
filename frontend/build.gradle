@@ -1,0 +1,21 @@
+plugins {
+  id "com.moowork.node" version "1.2.0"
+}
+
+//node {
+//    download = false
+//}
+
+task clean(type: Delete) { delete 'build', 'dist' }
+
+task cibuild(dependsOn: ['npmInstall', 'npm_run_build']) {}
+
+task zipClient(dependsOn: 'cibuild',  type: Zip) {
+    from ('build/')
+    into('WEB-INF/classes/static')
+    destinationDir file('dist')
+}
+
+configurations { zip }
+artifacts { zip zipClient }
+
