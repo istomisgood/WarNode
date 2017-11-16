@@ -34,6 +34,14 @@ The build server gets its own task to execute - `cibuild`.
 ./gradlew cibuild
 ```
 
+## Run distribution
+
+```
+java -jar distribution/build/bootifulNode.war
+```
+
+[Open Browser](localhost:8080)
+
 ## TODO
 
 Move all logic to distribution/build.gradle. This way backend and frontend are kept as straight forward as possible.
