@@ -34,4 +34,7 @@ The build server gets its own task to execute - `cibuild`.
 ./gradlew cibuild
 ```
 
+## TODO
+
+Move all logic to distribution/build.gradle. This way backend and frontend are kept as straight forward as possible.
 
